@@ -8,7 +8,7 @@ class OperationInterface
 {
 public:
     virtual QString getOperationType() = 0;
-    virtual void makeOperation(double a, double b, OperationResult * result) = 0;
+    virtual double makeOperation(double a, double b, OperationResult * result) = 0;
     virtual ~OperationInterface() {};
 protected:
     OperationResult m_result;

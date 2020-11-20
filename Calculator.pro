@@ -17,10 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         addoperation.cpp \
         calculatorservice.cpp \
+        divideoperation.cpp \
         main.cpp \
+        multiplyoperation.cpp \
+        operationfactory.cpp \
         operationfactoryinterface.cpp \
         operationinterface.cpp \
-        operationresult.cpp
+        operationresult.cpp \
+        subtractoperation.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -30,6 +34,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     addoperation.h \
     calculatorservice.h \
+    divideoperation.h \
+    multiplyoperation.h \
+    operationfactory.h \
     operationfactoryinterface.h \
     operationinterface.h \
-    operationresult.h
+    operationresult.h \
+    subtractoperation.h

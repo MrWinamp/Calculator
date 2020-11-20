@@ -1,19 +1,19 @@
-#ifndef ADDOPERATION_H
-#define ADDOPERATION_H
-
 #include "operationresult.h"
 #include "operationinterface.h"
 #include <QString>
 
-class AddOperation: public OperationInterface
+#ifndef ADDOPERATION_H
+#define ADDOPERATION_H
+
+class AddOperation : public OperationInterface
 {
 public:
     AddOperation();
-    virtual QString getOperationType(){return "Add";}
-    virtual void makeOperation(double a, double b, OperationResult * result)
+    virtual QString getOperationType(){return "+";}
+    virtual double makeOperation(double a, double b, OperationResult * result)
     {
-        m_result = OperationResult::Ok;
-        result = &m_result;
+        *result = OperationResult::Ok;
+        return a + b;
     }
     ~AddOperation() {}
 };
