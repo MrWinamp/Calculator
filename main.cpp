@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     CalculatorService client;
-    OperationResult result = OperationResult::Ok;
     double var1, var2, res;
     QTextStream Qcin(stdin);
     QString oper;
@@ -31,8 +30,8 @@ int main(int argc, char *argv[])
         cin >> var2;
         cout << endl;
 
-        res = client.makeOperation(var1,var2,oper,&result);
-        cout << "Result is: " << res << " result status is " << static_cast<int>(result) << endl;
+        res = client.makeOperation(var1,var2,oper);
+        cout << "Result is: " << res << " result status is " << static_cast<int>(client.getOperationResult()) << endl;
         getch();
         system("cls");
     }

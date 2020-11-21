@@ -13,8 +13,9 @@ public:
     double divide(double a, double b, OperationResult * result);
     double multiply(double a, double b, OperationResult * result);
     */
-    double makeOperation(double a, double b, QString type_name, OperationResult * result);
+    double makeOperation(double a, double b, QString type_name);
     void setOperationFactoryInterface(OperationFactoryInterface * f);
+    OperationResult getOperationResult();
 private:
     OperationFactoryInterface * m_operation_factory_interface;
     OperationResult m_result;
