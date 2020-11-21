@@ -13,8 +13,16 @@ public:
     virtual QString getOperationType(){return "*";}
     virtual double makeOperation(double a, double b, OperationResult * result)
     {
-        *result = OperationResult::Ok;
-        return a * b;
+        if(result)
+        {
+            *result = OperationResult::Ok;
+            return a * b;
+        }
+        else
+        {
+            printf("Error OperationResult\n");
+            return 0;
+        }
     }
     ~MultiplyOperation() {}
 };

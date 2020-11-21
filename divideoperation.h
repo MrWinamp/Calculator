@@ -15,14 +15,30 @@ public:
     {
         if(b)
         {
-            *result = OperationResult::Ok;
-            return a / b;
+            if(result)
+            {
+                *result = OperationResult::Ok;
+                return a / b;
+            }
+            else
+            {
+                printf("Error OperationResult\n");
+                return 0;
+            }
         }
         else
         {
-            printf("Error division by zero\n");
-            *result = OperationResult::Error;
-            return 0;
+            if(result)
+            {
+                printf("Error division by zero\n");
+                *result = OperationResult::Error;
+                return 0;
+            }
+            else
+            {
+                printf("Error OperationResult and division by zero\n");
+                return 0;
+            }
         }
     }
     ~DivideOperation() {}
