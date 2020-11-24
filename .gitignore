@@ -1,0 +1,16 @@
+
+*.user
+
+*.o
+
+*.exe
+
+Test/build-CalculatorServiceTest-Desktop_Qt_5_14_1_MinGW_64_bit-Debug/object_script.CalculatorServiceTest
+
+Test/build-CalculatorServiceTest-Desktop_Qt_5_14_1_MinGW_64_bit-Debug/moc_predefs.h
+
+Test/build-CalculatorServiceTest-Desktop_Qt_5_14_1_MinGW_64_bit-Debug/Makefile
+
+Test/build-CalculatorServiceTest-Desktop_Qt_5_14_1_MinGW_64_bit-Debug/calculatorservicetest.moc
+
+Test/build-CalculatorServiceTest-Desktop_Qt_5_14_1_MinGW_64_bit-Debug/.qmake.stash
