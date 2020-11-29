@@ -2,17 +2,14 @@
 #define CALCULATORSERVICE_H
 
 #include "operationfactory.h"
+#include <iostream>
 
 class CalculatorService
 {
 public:
     CalculatorService();
-    /*
-    double add(double a, double b, OperationResult * result);
-    double subtract(double a, double b, OperationResult * result);
-    double divide(double a, double b, OperationResult * result);
-    double multiply(double a, double b, OperationResult * result);
-    */
+    ~CalculatorService();
+
     double makeOperation(double a, double b, QString type_name);
     void setOperationFactoryInterface(OperationFactoryInterface * f);
     OperationResult getOperationResult();

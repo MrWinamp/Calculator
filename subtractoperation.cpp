@@ -4,3 +4,8 @@ SubtractOperation::SubtractOperation()
 {
 
 }
+
+SubtractOperation::~SubtractOperation()
+{
+    std::cout << "SubstractOperation destructor\n";
+}

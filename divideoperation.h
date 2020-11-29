@@ -1,6 +1,7 @@
 #include "operationresult.h"
 #include "operationinterface.h"
 #include <QString>
+#include <iostream>
 
 #ifndef DIVIDEOPERATION_H
 #define DIVIDEOPERATION_H

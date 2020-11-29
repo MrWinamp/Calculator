@@ -2,5 +2,5 @@
 
 MultiplyOperation::MultiplyOperation()
 {
-
+    std::cout << "MultiplyOperation destructor\n";
 }

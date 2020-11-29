@@ -6,6 +6,11 @@ CalculatorService::CalculatorService()
     m_result = OperationResult::Ok;
 }
 
+CalculatorService::~CalculatorService()
+{
+    std::cout << "CalculatorService destructor\n";
+}
+
 double CalculatorService::makeOperation(double a, double b, QString type_name)
 {
     if(m_operation_factory_interface)
@@ -13,7 +18,12 @@ double CalculatorService::makeOperation(double a, double b, QString type_name)
         OperationInterface * interface;
         interface = m_operation_factory_interface->createOperationObject(type_name);
         if(interface)
-            return interface->makeOperation(a,b,&m_result);
+        {
+            double result;
+            result = interface->makeOperation(a,b,&m_result);
+            delete interface;
+            return result;
+        }
         else
         {
             printf("Error createOperationObject\n");

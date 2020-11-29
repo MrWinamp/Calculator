@@ -3,13 +3,15 @@
 
 #include "operationresult.h"
 #include <QString>
+#include <iostream>
 
 class OperationInterface
 {
 public:
+    OperationInterface();
     virtual QString getOperationType() = 0;
     virtual double makeOperation(double a, double b, OperationResult * result) = 0;
-    virtual ~OperationInterface() {};
+    virtual ~OperationInterface();
 protected:
     OperationResult m_result;
 };

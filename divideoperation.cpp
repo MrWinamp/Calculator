@@ -2,5 +2,5 @@
 
 DivideOperation::DivideOperation()
 {
-
+    std::cout << "DivideOperation\n";
 }

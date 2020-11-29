@@ -2,7 +2,12 @@
 
 OperationFactory::OperationFactory()
 {
+    std::cout << "OperationFactory constructor\n";
+}
 
+OperationFactory::~OperationFactory()
+{
+    std::cout << "OperationFactory destructor\n";
 }
 
 OperationInterface * OperationFactory::createOperationObject(QString type_name)
