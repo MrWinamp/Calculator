@@ -3,9 +3,12 @@
 
 #include "operationfactory.h"
 #include <iostream>
+#include <QObject>
+#include <QSharedPointer>
 
-class CalculatorService
+class CalculatorService: public QObject
 {
+    Q_OBJECT
 public:
     CalculatorService();
     ~CalculatorService();

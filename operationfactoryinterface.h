@@ -4,9 +4,11 @@
 #include "operationinterface.h"
 #include <QString>
 #include <iostream>
+#include <QObject>
 
-class OperationFactoryInterface
+class OperationFactoryInterface: public QObject
 {
+    Q_OBJECT
 public:
     OperationFactoryInterface();
     virtual OperationInterface * createOperationObject(QString type_name) = 0;

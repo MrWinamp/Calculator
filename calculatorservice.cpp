@@ -17,12 +17,10 @@ double CalculatorService::makeOperation(double a, double b, QString type_name)
     {
         OperationInterface * interface;
         interface = m_operation_factory_interface->createOperationObject(type_name);
-        if(interface)
+        QSharedPointer<OperationInterface> ptr(interface); // Можем не беспокоиться об очистке памяти
+        if(!ptr.isNull())
         {
-            double result;
-            result = interface->makeOperation(a,b,&m_result);
-            delete interface;
-            return result;
+            return ptr->makeOperation(a,b,&m_result);
         }
         else
         {
