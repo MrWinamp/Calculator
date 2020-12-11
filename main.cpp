@@ -20,17 +20,17 @@ int main(int argc, char *argv[])
     QString oper;
     OperationFactory * fac; // Создаем фабрику
     fac = new OperationFactory;
-    QPointer<OperationFactory> ptr1(fac); // Используем защищенный указатель
-    QPointer<CalculatorService> ptr2(client);
+    QSharedPointer<OperationFactory> ptr1(fac); // Используем умный указатель
+    QSharedPointer<CalculatorService> ptr2(client);
 
-    if(!ptr1.isNull() && !ptr2.isNull()) // Используем QPointer для проверки правильной работы
+    if(!ptr1.isNull() && !ptr2.isNull()) // Используем QSharedPointer для проверки правильной работы
         ptr2->setOperationFactoryInterface(ptr1.data());
     else
         return 1;
 
     //while(true)
     //{
-        printf("Enter number 1: "); //Инициализация
+        cout << "\nEnter number 1: "; //Инициализация
         cin >> var1;
         cout << endl;
         cout << "Enter operation: ";
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         cout << endl;
 
         res = ptr2->makeOperation(var1,var2,oper);
-        cout << "Result is: " << res << " result status is " << static_cast<int>(ptr2->getOperationResult()) << endl;
+        cout << "\nResult is: " << res << " result status is " << static_cast<int>(ptr2->getOperationResult()) << endl << endl;
         //getch();
         //system("cls");
         /*
@@ -50,16 +50,5 @@ int main(int argc, char *argv[])
     //}
 
     //return a.exec();
-    delete  fac;
-    if(ptr1.isNull())
-        cout << "OperationFactory QPointer is NULL" << endl;
-    else
-        cout << "OperationFactory QPointer isn't NULL" << endl;
-
-    delete client;
-    if(ptr2.isNull())
-        cout << "CalculatorService QPointer is NULL" << endl;
-    else
-        cout << "CalculatorService QPointer isn't NULL" << endl;
     return 0;
 }

@@ -12,19 +12,7 @@ public:
     AddOperation();
     ~AddOperation();
     virtual QString getOperationType(){return "+";}
-    virtual double makeOperation(double a, double b, OperationResult * result)
-    {
-        if(result)
-        {
-            *result = OperationResult::Ok;
-            return a + b;
-        }
-        else
-        {
-            printf("Error OperationResult\n");
-            return 0;
-        }
-    }
+    virtual double makeOperation(double a, double b, OperationResult * result);
 };
 
 #endif // ADDOPERATION_H

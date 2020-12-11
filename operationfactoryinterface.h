@@ -11,7 +11,7 @@ class OperationFactoryInterface: public QObject
     Q_OBJECT
 public:
     OperationFactoryInterface();
-    virtual OperationInterface * createOperationObject(QString type_name) = 0;
+    virtual QSharedPointer<OperationInterface> createOperationObject(QString type_name) = 0;
     virtual ~OperationFactoryInterface();
 };
 

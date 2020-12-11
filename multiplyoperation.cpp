@@ -1,6 +1,26 @@
 #include "multiplyoperation.h"
+using std::cout;
 
 MultiplyOperation::MultiplyOperation()
 {
-    std::cout << "MultiplyOperation destructor\n";
+    cout << "MultiplyOperation constructor\n";
+}
+
+MultiplyOperation::~MultiplyOperation()
+{
+    cout << "MultiplyOperation destructor\n";
+}
+
+double MultiplyOperation::makeOperation(double a, double b, OperationResult * result)
+{
+    if(result)
+    {
+        *result = OperationResult::Ok;
+        return a * b;
+    }
+    else
+    {
+        cout << "Error OperationResult\n";
+        return 0;
+    }
 }

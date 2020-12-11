@@ -1,40 +1,45 @@
 #include "operationfactory.h"
+using std::cout;
 
 OperationFactory::OperationFactory()
 {
-    std::cout << "OperationFactory constructor\n";
+    cout << "OperationFactory constructor\n";
 }
 
 OperationFactory::~OperationFactory()
 {
-    std::cout << "OperationFactory destructor\n";
+    cout << "OperationFactory destructor\n";
 }
 
-OperationInterface * OperationFactory::createOperationObject(QString type_name)
+QSharedPointer<OperationInterface> OperationFactory::createOperationObject(QString type_name)
 {
     if(type_name == "+")
     {
         AddOperation * add = new AddOperation;
-        return add;
+        QSharedPointer<OperationInterface> ptr(add);
+        return ptr;
     }
     else if(type_name == "-")
     {
         SubtractOperation * sub = new SubtractOperation;
-        return sub;
+        QSharedPointer<OperationInterface> ptr(sub);
+        return ptr;
     }
     else if(type_name == "*")
     {
         MultiplyOperation * mul = new MultiplyOperation;
-        return mul;
+        QSharedPointer<OperationInterface> ptr(mul);
+        return ptr;
     }
     else if(type_name == "/")
     {
         DivideOperation * div = new DivideOperation;
-        return div;
+        QSharedPointer<OperationInterface> ptr(div);
+        return ptr;
     }
     else
     {
-        printf("Incorrect operation\n");
+        cout << "Incorrect operation\n";
         return nullptr;
     }
 }

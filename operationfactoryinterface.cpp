@@ -1,11 +1,13 @@
 #include "operationfactoryinterface.h"
+using std::cout;
+
 
 OperationFactoryInterface::OperationFactoryInterface()
 {
-    std::cout << "OperationFactoryInterface constructor\n";
+    cout << "OperationFactoryInterface constructor\n";
 }
 
 OperationFactoryInterface::~OperationFactoryInterface()
 {
-    std::cout << "OperationFactoryInterface destructor\n";
+    cout << "OperationFactoryInterface destructor\n";
 }

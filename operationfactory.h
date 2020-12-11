@@ -4,6 +4,7 @@
 #include "multiplyoperation.h"
 #include "divideoperation.h"
 #include <iostream>
+#include <QSharedPointer>
 
 #ifndef OPERATIONFACTORY_H
 #define OPERATIONFACTORY_H
@@ -12,7 +13,7 @@ class OperationFactory : public OperationFactoryInterface
 {
 public:
     OperationFactory();
-    OperationInterface * createOperationObject(QString type_name);
+    QSharedPointer<OperationInterface> createOperationObject(QString type_name);
     ~OperationFactory();
 };
 
