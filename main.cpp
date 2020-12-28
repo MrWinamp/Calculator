@@ -13,18 +13,14 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    CalculatorService * client;
-    client = new CalculatorService;
     double var1, var2, res;
     QTextStream Qcin(stdin);
     QString oper;
-    OperationFactory * fac; // Создаем фабрику
-    fac = new OperationFactory;
-    QSharedPointer<OperationFactory> ptr1(fac); // Используем умный указатель
-    QSharedPointer<CalculatorService> ptr2(client);
+    QSharedPointer<OperationFactory> ptr1(new OperationFactory); // Используем умный указатель
+    QSharedPointer<CalculatorService> ptr2(new CalculatorService);
 
-    if(!ptr1.isNull() && !ptr2.isNull()) // Используем QSharedPointer для проверки правильной работы
-        ptr2->setOperationFactoryInterface(ptr1.data());
+    if(ptr1 && ptr2) // Используем QSharedPointer для проверки правильной работы
+        ptr2->setOperationFactoryInterface(ptr1);
     else
         return 1;
 

@@ -17,9 +17,8 @@ double CalculatorService::makeOperation(double a, double b, QString type_name)
 {
     if(m_operation_factory_interface)
     {
-        QSharedPointer<OperationInterface> ptr; // Можем не беспокоиться об очистке памяти
-        ptr = m_operation_factory_interface->createOperationObject(type_name);
-        if(!ptr.isNull())
+        QSharedPointer<OperationInterface> ptr(m_operation_factory_interface->createOperationObject(type_name)); // Можем не беспокоиться об очистке памяти
+        if(ptr)
         {
             return ptr->makeOperation(a,b,&m_result);
         }
@@ -43,7 +42,7 @@ OperationResult CalculatorService::getOperationResult()
     return m_result;
 }
 
-void CalculatorService::setOperationFactoryInterface(OperationFactoryInterface * f)
+void CalculatorService::setOperationFactoryInterface(QSharedPointer<OperationFactoryInterface> f)
 {
     m_operation_factory_interface = f;
 }

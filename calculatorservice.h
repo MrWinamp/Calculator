@@ -14,10 +14,10 @@ public:
     ~CalculatorService();
 
     double makeOperation(double a, double b, QString type_name);
-    void setOperationFactoryInterface(OperationFactoryInterface * f);
+    void setOperationFactoryInterface(QSharedPointer<OperationFactoryInterface> f);
     OperationResult getOperationResult();
 private:
-    OperationFactoryInterface * m_operation_factory_interface;
+    QSharedPointer<OperationFactoryInterface> m_operation_factory_interface;
     OperationResult m_result;
 };
 
