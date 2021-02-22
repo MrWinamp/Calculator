@@ -10,6 +10,7 @@
 class MultiplyOperation : public OperationInterface
 {
 public:
+    QSharedPointer<OperationInterface> clone();
     MultiplyOperation();
     virtual QString getOperationType(){return "*";}
     virtual double makeOperation(double a, double b, OperationResult * result);

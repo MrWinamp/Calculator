@@ -9,6 +9,7 @@
 class AddOperation : public OperationInterface
 {
 public:
+    QSharedPointer<OperationInterface> clone();
     AddOperation();
     ~AddOperation();
     virtual QString getOperationType(){return "+";}

@@ -9,6 +9,7 @@
 class SubtractOperation : public OperationInterface
 {
 public:
+    QSharedPointer<OperationInterface> clone();
     SubtractOperation();
     ~SubtractOperation();
     virtual QString getOperationType(){return "-";}

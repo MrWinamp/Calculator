@@ -4,7 +4,7 @@ using std::cout;
 CalculatorService::CalculatorService()
 {
     cout << "CalculatorService constructor\n";
-    m_operation_factory_interface = nullptr;
+    m_operation_factory_interface = QSharedPointer<OperationFactoryInterface>();
     m_result = OperationResult::Ok;
 }
 

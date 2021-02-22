@@ -16,11 +16,24 @@ int main(int argc, char *argv[])
     double var1, var2, res;
     QTextStream Qcin(stdin);
     QString oper;
-    QSharedPointer<OperationFactory> ptr1(new OperationFactory); // Используем умный указатель
+
+    QSharedPointer<OperationInterface> addoperation(new AddOperation);
+    QSharedPointer<OperationInterface> multiplyoperation(new MultiplyOperation);
+    QSharedPointer<OperationInterface> divideoperation(new DivideOperation);
+    QSharedPointer<OperationInterface> substractoperation(new SubtractOperation);
+
+    QSharedPointer<OperationFactory> operation_factory(new OperationFactory); // Используем умный указатель
+
+    operation_factory->registerOperationInterface(addoperation);
+    operation_factory->registerOperationInterface(multiplyoperation);
+    operation_factory->registerOperationInterface(divideoperation);
+    operation_factory->registerOperationInterface(substractoperation);
+
+
     QSharedPointer<CalculatorService> ptr2(new CalculatorService);
 
-    if(ptr1 && ptr2) // Используем QSharedPointer для проверки правильной работы
-        ptr2->setOperationFactoryInterface(ptr1);
+    if(operation_factory && ptr2) // Используем QSharedPointer для проверки правильной работы
+        ptr2->setOperationFactoryInterface(operation_factory);
     else
         return 1;
 

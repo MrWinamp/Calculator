@@ -10,6 +10,7 @@
 class DivideOperation : public OperationInterface
 {
 public:
+    QSharedPointer<OperationInterface> clone();
     DivideOperation();
     virtual QString getOperationType(){return "/";}
     virtual double makeOperation(double a, double b, OperationResult * result);

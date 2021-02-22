@@ -23,6 +23,7 @@ SOURCES += \
         operationfactory.cpp \
         operationfactoryinterface.cpp \
         operationinterface.cpp \
+        operationinterfaceprototype.cpp \
         operationresult.cpp \
         subtractoperation.cpp
 
@@ -39,5 +40,6 @@ HEADERS += \
     operationfactory.h \
     operationfactoryinterface.h \
     operationinterface.h \
+    operationinterfaceprototype.h \
     operationresult.h \
     subtractoperation.h

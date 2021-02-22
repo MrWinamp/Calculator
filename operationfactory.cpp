@@ -13,33 +13,20 @@ OperationFactory::~OperationFactory()
 
 QSharedPointer<OperationInterface> OperationFactory::createOperationObject(QString type_name)
 {
-    if(type_name == "+")
+    QSharedPointer<OperationInterface> o = m_operations_hash.value(type_name, QSharedPointer<OperationInterface>());
+    Q_ASSERT(o);
+
+    if(o)
     {
-        AddOperation * add = new AddOperation;
-        QSharedPointer<OperationInterface> ptr(add);
-        return ptr;
+        return o->clone();
     }
-    else if(type_name == "-")
-    {
-        SubtractOperation * sub = new SubtractOperation;
-        QSharedPointer<OperationInterface> ptr(sub);
-        return ptr;
-    }
-    else if(type_name == "*")
-    {
-        MultiplyOperation * mul = new MultiplyOperation;
-        QSharedPointer<OperationInterface> ptr(mul);
-        return ptr;
-    }
-    else if(type_name == "/")
-    {
-        DivideOperation * div = new DivideOperation;
-        QSharedPointer<OperationInterface> ptr(div);
-        return ptr;
-    }
-    else
-    {
-        cout << "Incorrect operation\n";
-        return nullptr;
-    }
+
+    cout << "Incorrect operation\n";
+    return QSharedPointer<OperationInterface>();
+}
+
+void OperationFactory::registerOperationInterface(QSharedPointer<OperationInterface> operation_interface)
+{
+    QString operation_name = operation_interface->getOperationType();
+    m_operations_hash.insert(operation_name, operation_interface);
 }

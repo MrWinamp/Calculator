@@ -1,6 +1,11 @@
 #include "subtractoperation.h"
 using std::cout;
 
+QSharedPointer<OperationInterface> SubtractOperation::clone()
+{
+    return QSharedPointer<OperationInterface>(new SubtractOperation);
+}
+
 SubtractOperation::SubtractOperation()
 {
     cout << "SubstractOperation constructor\n";

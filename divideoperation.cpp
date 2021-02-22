@@ -1,6 +1,11 @@
 #include "divideoperation.h"
 using std::cout;
 
+QSharedPointer<OperationInterface> DivideOperation::clone()
+{
+    return QSharedPointer<OperationInterface>(new DivideOperation);
+}
+
 DivideOperation::DivideOperation()
 {
     cout << "DivideOperation constructor\n";

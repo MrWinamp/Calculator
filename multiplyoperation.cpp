@@ -1,6 +1,11 @@
 #include "multiplyoperation.h"
 using std::cout;
 
+QSharedPointer<OperationInterface> MultiplyOperation::clone()
+{
+    return QSharedPointer<OperationInterface>(new MultiplyOperation);
+}
+
 MultiplyOperation::MultiplyOperation()
 {
     cout << "MultiplyOperation constructor\n";
